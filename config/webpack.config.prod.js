@@ -176,7 +176,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
             rules: [
               {
                 loader: MiniCssExtractPlugin.loader,
@@ -190,12 +190,14 @@ module.exports = {
                 },
               },
               {
+                test: /\.scss$/,
                 loader: require.resolve('postcss-loader'),
                 options: {
                   // Necessary for external CSS imports to work
                   // https://github.com/facebookincubator/create-react-app/issues/2677
                   ident: 'postcss',
                   plugins: () => [
+                    require('precss'),
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
                       browsers: [
