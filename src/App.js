@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import Home from './containers/home';
+import LayoutBase from './components/LayoutBase';
+import Overview from './containers/overview';
 import NotFound from './containers/not-found';
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route component={NotFound} />
-        </Switch>
+        <LayoutBase>
+          <Switch>
+            <Redirect from="/" to="/overview" exact />
+            <Route path="/overview" component={Overview} exact />
+            <Route component={NotFound} />
+          </Switch>
+        </LayoutBase>
       </BrowserRouter>
     );
   }

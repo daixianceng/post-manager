@@ -4,22 +4,23 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 
-import Header from '../../components/Header';
-import NavList from '../../components/NavList';
+import Header from '../Header';
+import NavList from '../NavList';
 import s from './styles';
 
-class Home extends Component {
+class Layout extends Component {
   render() {
-    const { classes } = this.props;
+    const { children, classes } = this.props;
+
     return (
-      <div>
+      <div className={classes.root}>
         <Header />
         <Grid container wrap="nowrap">
           <Grid className={classes.nav} item lg={2} md={3}>
             <NavList />
           </Grid>
           <Grid item xs>
-            content...
+            {children}
           </Grid>
         </Grid>
       </div>
@@ -27,8 +28,8 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
-export default withStyles(s)(Home);
+export default withStyles(s)(Layout);
