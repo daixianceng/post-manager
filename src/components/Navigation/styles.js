@@ -3,12 +3,12 @@ export default theme => ({
     display: 'flex',
     flexGrow: 1,
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     userMenu: {
       display: 'none',
     },
   },
-  [theme.breakpoints.up('sm')]: {
+  [theme.breakpoints.up('md')]: {
     moreButton: {
       display: 'none',
     },
