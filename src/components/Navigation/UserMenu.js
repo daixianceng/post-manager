@@ -20,7 +20,7 @@ class UserMenu extends Component {
 
   handleClose() {
     this.setState({ anchorEl: null });
-  };
+  }
 
   render() {
     const { anchorEl } = this.state;
@@ -39,7 +39,9 @@ class UserMenu extends Component {
           open={open}
           onClose={this.handleClose.bind(this)}
         >
-          <MenuItem component={Link} to="/profile">Profile</MenuItem>
+          <MenuItem component={Link} to="/profile">
+            Profile
+          </MenuItem>
           <MenuItem>Log out</MenuItem>
         </Menu>
       </>

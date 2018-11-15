@@ -2,8 +2,10 @@ import React from 'react';
 import Layout from '../../components/Layout';
 import Overview from './Overview';
 
-export default () => (
+const Page = () => (
   <Layout>
     <Overview />
   </Layout>
 );
+
+export default Page;

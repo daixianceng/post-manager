@@ -39,11 +39,11 @@
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "css-loader": "1.0.0",
     "eslint": "5.6.0",
-    "eslint-config-react-app": "^2.1.0",
+    "eslint-config-prettier": "^3.2.0",
     "eslint-loader": "2.1.0",
-    "eslint-plugin-flowtype": "2.50.1",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "7.11.1",
     "file-loader": "2.0.0",
     "html-webpack-plugin": "4.0.0-alpha",
@@ -52,6 +52,7 @@
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
     "precss": "^3.1.2",
+    "prettier": "^1.15.2",
     "react-dev-utils-for-webpack4": "^5.0.0-webpack4",
     "style-loader": "0.23.0",
     "sw-precache-webpack-plugin": "0.11.5",
@@ -64,7 +65,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -99,8 +101,5 @@
       "node",
       "mjs"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   }
 }

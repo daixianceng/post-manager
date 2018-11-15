@@ -6,10 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 class MoreButton extends Component {
   render() {
     return (
-      <IconButton
-        color="inherit"
-        {...this.props}
-      >
+      <IconButton color="inherit" {...this.props}>
         <MenuIcon />
       </IconButton>
     );

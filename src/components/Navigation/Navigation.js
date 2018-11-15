@@ -19,9 +19,7 @@ class Navigation extends Component {
         <div className={classes.growBox}>
           <MoreButton className={classes.moreButton} />
           <Button component={Link} to="/" color="inherit" title="Home">
-            <Typography color="inherit">
-              Post Manager
-            </Typography>
+            <Typography color="inherit">Post Manager</Typography>
           </Button>
         </div>
         <UserMenu className={classes.userMenu} />

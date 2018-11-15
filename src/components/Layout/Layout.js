@@ -30,6 +30,7 @@ class Layout extends Component {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(s)(Layout);
