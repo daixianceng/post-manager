@@ -1,5 +1,8 @@
 {
   "javascript.format.enable": false,
   "eslint.alwaysShowStatus": true,
-  "tslint.enable": false
+  "tslint.enable": false,
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
+  "eslint.autoFixOnSave": true
 }
