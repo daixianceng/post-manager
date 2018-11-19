@@ -14,31 +14,23 @@ class UserMenu extends Component {
     };
   }
 
-  handleOpen(event) {
+  handleOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
-  }
+  };
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ anchorEl: null });
-  }
+  };
 
   render() {
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     return (
       <>
-        <IconButton
-          onClick={this.handleOpen.bind(this)}
-          color="inherit"
-          {...this.props}
-        >
+        <IconButton onClick={this.handleOpen} color="inherit" {...this.props}>
           <AccountCircleIcon />
         </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={this.handleClose.bind(this)}
-        >
+        <Menu anchorEl={anchorEl} open={open} onClose={this.handleClose}>
           <MenuItem component={Link} to="/profile">
             Profile
           </MenuItem>
