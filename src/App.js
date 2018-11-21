@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import LayoutBase from './components/LayoutBase';
+import Login from './containers/login';
 import Overview from './containers/overview';
 import NotFound from './containers/not-found';
 
@@ -12,6 +13,7 @@ class App extends Component {
         <LayoutBase>
           <Switch>
             <Redirect from="/" to="/overview" exact />
+            <Route path="/login" component={Login} exact />
             <Route path="/overview" component={Overview} exact />
             <Route component={NotFound} />
           </Switch>
