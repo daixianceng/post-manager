@@ -1,39 +1,70 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import { FormikTextField } from 'formik-material-fields';
 
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
+
+const validationSchema = Yup.object().shape({
+  username: Yup.string()
+    .matches(/^[\w-]+$/, {
+      message: 'Username is invalid',
+      excludeEmptyString: true,
+    })
+    .required('Please enter username'),
+  password: Yup.string().required('Please enter password'),
+});
+
+const initialValues = {
+  username: '',
+  password: '',
+};
 
 class LoginForm extends Component {
-  state = {
-    username: '',
-    password: '',
-  };
-
   render() {
     return (
-      <form autoComplete="off">
-        <TextField
-          label="Username"
-          value={this.state.username}
-          margin="normal"
-          fullWidth
-        />
-        <TextField
-          label="Password"
-          value={this.state.password}
-          margin="normal"
-          fullWidth
-        />
-        <FormControl margin="normal" fullWidth>
-          <Button variant="contained" color="primary" type="submit" fullWidth>
-            Submit
-          </Button>
-        </FormControl>
-      </form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={this.props.onSubmit}
+      >
+        {({ isValid }) => (
+          <Form autoComplete="off">
+            <FormikTextField
+              name="username"
+              label="Username"
+              margin="normal"
+              fullWidth
+            />
+            <FormikTextField
+              name="password"
+              label="Password"
+              margin="normal"
+              type="password"
+              fullWidth
+            />
+            <FormControl margin="normal" fullWidth>
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                disabled={!isValid}
+                fullWidth
+              >
+                Submit
+              </Button>
+            </FormControl>
+          </Form>
+        )}
+      </Formik>
     );
   }
 }
+
+LoginForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default LoginForm;

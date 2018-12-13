@@ -13,6 +13,8 @@ class Login extends Component {
     classes: PropTypes.object.isRequired,
   };
 
+  handleSubmit = () => {};
+
   render() {
     const { classes } = this.props;
     return (
@@ -20,7 +22,7 @@ class Login extends Component {
         <Typography className={classes.title} variant="h3" gutterBottom>
           Login
         </Typography>
-        <LoginForm />
+        <LoginForm onSubmit={this.handleSubmit} />
       </Paper>
     );
   }
