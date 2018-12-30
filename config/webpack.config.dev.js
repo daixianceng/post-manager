@@ -172,7 +172,11 @@ module.exports = {
                 // https://github.com/babel/babel/tree/master/packages/babel-preset-react
                 ['@babel/react', { development: true }],
               ],
-              plugins: ['@babel/plugin-proposal-class-properties'],
+              plugins: [
+                '@babel/plugin-proposal-class-properties',
+                '@babel/plugin-proposal-export-default-from',
+                '@babel/plugin-transform-runtime',
+              ],
             },
           },
           // "postcss" loader applies autoprefixer to our CSS.

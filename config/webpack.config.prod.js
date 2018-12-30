@@ -159,7 +159,11 @@ module.exports = {
                 // https://github.com/babel/babel/tree/master/packages/babel-preset-react
                 ['@babel/react', { development: false }],
               ],
-              plugins: ['@babel/plugin-proposal-class-properties'],
+              plugins: [
+                '@babel/plugin-proposal-class-properties',
+                '@babel/plugin-proposal-export-default-from',
+                '@babel/plugin-transform-runtime',
+              ],
               compact: true,
             },
           },
