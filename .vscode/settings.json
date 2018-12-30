@@ -4,5 +4,6 @@
   "tslint.enable": false,
   "javascript.validate.enable": false,
   "typescript.validate.enable": false,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": false,
+  "editor.formatOnSave": true
 }
