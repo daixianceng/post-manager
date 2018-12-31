@@ -36,5 +36,10 @@ module.exports = {
     react: {
       version: '16.5.1',
     },
+    'import/resolver': {
+      node: {
+        paths: ['src', 'src/redux'],
+      },
+    },
   },
 };
