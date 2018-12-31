@@ -32,6 +32,9 @@ module.exports = {
     browser: true,
     node: true,
   },
+  globals: {
+    AppContext: true,
+  },
   settings: {
     react: {
       version: '16.5.1',

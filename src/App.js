@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import LayoutBase from './components/LayoutBase';
 import Login from './containers/login';
@@ -9,7 +9,7 @@ import NotFound from './containers/not-found';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router {...this.props}>
         <LayoutBase>
           <Switch>
             <Redirect from="/" to="/overview" exact />
@@ -18,7 +18,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </LayoutBase>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

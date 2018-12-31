@@ -26,6 +26,7 @@ class LoginForm extends Component {
   render() {
     return (
       <Formik
+        ref={this.props.formikRef}
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={this.props.onSubmit}
@@ -65,6 +66,7 @@ class LoginForm extends Component {
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  formikRef: PropTypes.any,
 };
 
 export default LoginForm;
