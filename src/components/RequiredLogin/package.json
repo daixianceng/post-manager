@@ -1,0 +1,6 @@
+{
+  "name": "required-login",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./RequiredLogin.js"
+}
