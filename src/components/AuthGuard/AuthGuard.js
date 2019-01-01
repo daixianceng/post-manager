@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import authHelper from 'utils/authHelper';
 
-const RequiredLogin = ({ user, children }) => {
+const AuthGuard = ({ user, children }) => {
   if (user) {
     return children;
   } else {
@@ -12,7 +12,7 @@ const RequiredLogin = ({ user, children }) => {
   }
 };
 
-RequiredLogin.propTypes = {
+AuthGuard.propTypes = {
   user: PropTypes.object,
   children: PropTypes.node.isRequired,
 };
@@ -26,4 +26,4 @@ const mapDispatch = {};
 export default connect(
   mapState,
   mapDispatch,
-)(RequiredLogin);
+)(AuthGuard);
