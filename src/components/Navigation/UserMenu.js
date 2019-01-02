@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import compose from 'recompose/compose';
 
-import IconButton from '@material-ui/core/IconButton';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { withStyles } from '@material-ui/core/styles';
+
+import authHelper from 'utils/authHelper';
+
+const s = theme => ({
+  avatar: {
+    marginRight: theme.spacing.unit,
+  },
+});
 
 class UserMenu extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,23 +39,45 @@ class UserMenu extends Component {
     this.setState({ anchorEl: null });
   };
 
+  handleLogout = () => {
+    authHelper.logout();
+  };
+
   render() {
+    const { user, classes } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     return (
       <>
-        <IconButton onClick={this.handleOpen} color="inherit" {...this.props}>
-          <AccountCircleIcon />
-        </IconButton>
+        <Button onClick={this.handleOpen} color="inherit" {...this.props}>
+          <Avatar
+            alt={user.username}
+            src={user.avatarURL}
+            className={classes.avatar}
+          />
+          {user.username}
+        </Button>
         <Menu anchorEl={anchorEl} open={open} onClose={this.handleClose}>
           <MenuItem component={Link} to="/profile">
             Profile
           </MenuItem>
-          <MenuItem>Log out</MenuItem>
+          <MenuItem onClick={this.handleLogout}>Log out</MenuItem>
         </Menu>
       </>
     );
   }
 }
 
-export default UserMenu;
+const mapState = state => ({
+  user: state.auth.user,
+});
+
+const mapDispatch = {};
+
+export default compose(
+  withStyles(s),
+  connect(
+    mapState,
+    mapDispatch,
+  ),
+)(UserMenu);
