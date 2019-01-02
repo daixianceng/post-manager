@@ -1,11 +1,14 @@
 import React from 'react';
-import Layout from '../../components/Layout';
+import AuthGuard from 'components/AuthGuard';
+import Layout from 'components/Layout';
 import Overview from './Overview';
 
 const Page = () => (
-  <Layout>
-    <Overview />
-  </Layout>
+  <AuthGuard>
+    <Layout>
+      <Overview />
+    </Layout>
+  </AuthGuard>
 );
 
 export default Page;
