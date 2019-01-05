@@ -1,2 +1,2 @@
-export httpClient from './httpClient';
+export httpClient, { HTTPError, TimeoutError } from './httpClient';
 export loginService from './loginService';
