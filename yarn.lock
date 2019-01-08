@@ -5383,9 +5383,9 @@ kleur@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-2.0.2.tgz#b704f4944d95e255d038f0cb05fb8a602c55a300"
 
-ky@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.5.1.tgz#83947ea74955654100565ad19b525fcb129b472b"
+ky@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-0.6.0.tgz#f1c931bbda8170c4532637abc43911b92694eae5"
 
 latest-version@^3.0.0:
   version "3.1.0"
