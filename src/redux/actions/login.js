@@ -2,6 +2,7 @@ import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAIL } from '../constants/login';
 import { loginService } from 'services';
 import { UNPROCESSABLE_ENTITY } from 'utils/constants';
 import { resultIsSuccess } from 'utils/functions';
+import { setError } from './message';
 
 export function login(model) {
   return async (dispatch, getState) => {
@@ -31,6 +32,7 @@ export function login(model) {
         dispatch({
           type: LOGIN_FAIL,
         });
+        dispatch(setError(error));
       }
     }
   };

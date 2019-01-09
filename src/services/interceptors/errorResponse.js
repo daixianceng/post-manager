@@ -1,6 +1,7 @@
 import authHelper from 'utils/authHelper';
 import { UNAUTHORIZED, UNPROCESSABLE_ENTITY } from 'utils/constants';
 import { parseJSON } from 'utils/functions';
+import { setError } from 'actions/message';
 
 export default {
   afterResponse: async response => {
@@ -25,7 +26,7 @@ export default {
         } catch (error) {
           message = error.message;
         }
-        // @TODO Dispatch message
+        AppContext.store.dispatch(setError(message));
       }
     }
   },
