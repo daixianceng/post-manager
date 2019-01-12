@@ -44,6 +44,7 @@ class LoginForm extends Component {
               label="Password"
               margin="normal"
               type="password"
+              autoComplete="off"
               fullWidth
             />
             <FormControl margin="normal" fullWidth>
