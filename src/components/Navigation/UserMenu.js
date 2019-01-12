@@ -41,6 +41,7 @@ class UserMenu extends Component {
 
   handleLogout = () => {
     authHelper.logout();
+    authHelper.goLogin();
   };
 
   render() {
