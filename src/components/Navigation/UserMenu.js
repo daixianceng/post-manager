@@ -44,12 +44,12 @@ class UserMenu extends Component {
   };
 
   render() {
-    const { user, classes } = this.props;
+    const { user, classes, ...props } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
     return (
       <>
-        <Button onClick={this.handleOpen} color="inherit" {...this.props}>
+        <Button onClick={this.handleOpen} color="inherit" {...props}>
           <Avatar
             alt={user.username}
             src={user.avatarURL}
@@ -75,9 +75,9 @@ const mapState = state => ({
 const mapDispatch = {};
 
 export default compose(
-  withStyles(s),
   connect(
     mapState,
     mapDispatch,
   ),
+  withStyles(s),
 )(UserMenu);
