@@ -13,7 +13,7 @@ export function login(model) {
       });
 
       try {
-        const responseWrapper = await loginService.post(model);
+        const responseWrapper = loginService.post(model);
         const response = await responseWrapper;
         const result = await responseWrapper.json();
 
