@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Redirect, Switch } from 'react-router-dom';
 
+import Message from './components/Message';
 import LayoutBase from './components/LayoutBase';
 import Login from './containers/login';
 import Overview from './containers/overview';
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path="/overview" component={Overview} exact />
             <Route component={NotFound} />
           </Switch>
+          <Message />
         </LayoutBase>
       </Router>
     );

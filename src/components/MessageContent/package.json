@@ -1,0 +1,6 @@
+{
+  "name": "message-content",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MessageContent.js"
+}
